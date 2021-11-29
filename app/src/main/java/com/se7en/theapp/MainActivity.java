@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //for making the app fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         image.setAnimation(topAnimation);
 
         new Handler().postDelayed(() -> {
+            //using Shared Preferences to keep the user signed in even after closing the app
             SharedPreferences sharedPreferences = getSharedPreferences(SignIn1Activity.PREFS_NAME, 0);
             boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
